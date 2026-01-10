@@ -1,0 +1,17 @@
+# Usa a imagem oficial do n8n como base para a construção do seu serviço
+FROM docker.n8n.io/n8nio/n8n:latest
+
+# Define o diretório de trabalho padrão que o n8n usa para workflows
+WORKDIR /home/node/.n8n
+
+# Copia o arquivo do seu workflow (que você enviou anteriormente) para o diretório de workflows do n8n
+COPY Case_02.json /home/node/.n8n/workflows/Case_02.json
+
+# Define a variável de ambiente para carregar este workflow específico automaticamente
+ENV N8N_DEFAULT_WORKFLOW_ID=BRHXFqbWeDbQoqYJ
+
+# Define que o n8n deve iniciar automaticamente
+ENV N8N_EDITOR_BASE_URL=https://n8n-projeto-but.onrender.com
+ENV WEBHOOK_URL=https://n8n-projeto-but.onrender.com
+
+# O comando de inicialização (CMD ["n8n"]) já está na imagem base.
