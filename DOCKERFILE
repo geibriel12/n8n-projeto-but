@@ -1,5 +1,5 @@
 # Usa a imagem oficial do n8n como base para a construção do seu serviço
-FROM n8nio/n8n:1.76.1
+FROM n8nio/n8n:latest
 
 # Define o diretório de trabalho padrão que o n8n usa para workflows
 WORKDIR /home/node/.n8n
